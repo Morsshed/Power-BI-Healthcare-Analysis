@@ -121,6 +121,7 @@ This project provides a structured analytical approach to uncover these issues a
   
   ## A2.2 - Cardinality
 
+![Healthcare Data Relationship Diagram](https://github.com/Morsshed/Power-BI-Healthcare-Analysis/blob/main/Healthcare%20Data%20Relationship.png?raw=true)
 
 
   ## A2.3 - Filter Direction
