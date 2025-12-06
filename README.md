@@ -126,6 +126,7 @@ This project provides a structured analytical approach to uncover these issues a
 
   ## A2.3 - Filter Direction
   
+![Healthcare Data Cross-Filter Diagram](https://github.com/Morsshed/Power-BI-Healthcare-Analysis/blob/main/Healthcare%20Data%20Cross%20Filter.png?raw=true)
 
 
 # B - DAX Languages
