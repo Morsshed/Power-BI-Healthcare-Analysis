@@ -164,74 +164,241 @@ This project provides a structured analytical approach to uncover these issues a
  
  ## B1.3 - Calculated Columns
 
-                                  Age Group = 
-                                    SWITCH(
-                                        TRUE(),
-                                        DimCustomer[Age] <= 16, "0-16y",
-                                        DimCustomer[Age] <= 30, "17-30y",
-                                        DimCustomer[Age] <= 60, "31-60y",
-                                        "61y+"
-                                    )
+                                   LOS Groups (Modified) = 
+                                   SWITCH(
+                                       TRUE(),
+                                       HealthStatData[LOS (days)] <= 3, "Short Stay (0-3d)",
+                                       HealthStatData[LOS (days)] <= 7, "Moderate Stay (4-7d)",
+                                       HealthStatData[LOS (days)] <= 14, "Long Stay (8-14d)",
+                                       "Extended Stay (+15d)"
+                                   ) 
 
-                                  Priority Customers = 
-                                     IF(
-                                       DimCustomer[AnnualIncome] >= 100000 && DimCustomer[Is Parent?] = "Yes",
-                                         "Priority", "Standard"
-                                     ) 
-
-                                  Price Group = 
-                                      SWITCH(
-                                          TRUE(),
-                                          DimProduct[ProductPrice] >= 500, "Premium",
-                                          DimProduct[ProductPrice] >= 150, "Mid-Range",
-                                          "Low"
-                                      )
-
-                                  Retail Price = RELATED(DimProduct[ProductPrice])
-                                  Sale Value = FactSales[OrderQuantity] * FactSales[Retail Price]
-
- ## B1.4 - Calculated Measures (KPI Measures)
+ ## B1.4 - Calculated Measures 
  
-  #### Sales & Profits
+  #### KPI Measures
   
-                                   Total Sales = SUM(FactSales[Sale Value])
-                                   Total Revenue = SUMX(FactSales,FactSales[OrderQuantity]*RELATED(DimProduct[ProductPrice]))
-                                   Total Cost = SUMX(FactSales,FactSales[OrderQuantity]*RELATED(DimProduct[ProductCost]))
-                                   Net Profit = [Total Revenue]-[Total Cost]
-                                   Profit Margin = DIVIDE([Net Profit], [Total Revenue], BLANK())
-                                   Profit Target = [PM Profit]*1.1
-                                   Profit Target Gap = [Net Profit]-[Profit Target]
-                                   Revenue Target = [PM Revenue]*1.1
-                                   Revenue Target Gap = [Total Revenue]-[Revenue Target]
+                                   Admitted Patients = DISTINCTCOUNT(HealthStatData[Patient ID])
+                                   AVG Age = AVERAGE(HealthStatData[Age])
+                                   AVG Billing Amount = DIVIDE([Total Billing],[Admitted Patients],BLANK())
+                                   AVG LOS = AVERAGE(HealthStatData[LOS (days)])
+                                   Total Billing = SUM(HealthStatData[Billing Amount])
+                                   Total Doctors = DISTINCTCOUNT(HealthStatData[Doctor])
+                                   Total Rooms = DISTINCTCOUNT(HealthStatData[Room Number])
+                           
 
-   #### Orders
+   #### Test Results
    
-                                    Number of Orders = DISTINCTCOUNT(FactSales[OrderNumber])
-                                    AOV = DIVIDE([Total Revenue], [# of Orders], BLANK())
-                                    AVG Basket Size = DIVIDE([Quantity Ordered], [# of Orders], BLANK())
-                                    Order Target = [PM Order]*1.1
-                                    Order Target Gap = [# of Orders]- [Order Target]
-                                    Price Per Item = DIVIDE([Total Revenue],[Quantity Ordered], BLANK())
-                                    Quantity Ordered = sum(FactSales[OrderQuantity])
+                                    % of Abnormal Results = DIVIDE([Abnormal Results],[Admitted Patients All], BLANK())
+                                    % of Inconclusive Results = DIVIDE([Inconclusive Results],[Admitted Patients All], BLANK())
+                                    % of Normal Results = DIVIDE([Normal Results],[Admitted Patients All], BLANK())
+                                    Abnormal Results = CALCULATE([Admitted Patients],HealthStatData[Test Results] = "Abnormal") + 0
+                                    Admitted Patients All = CALCULATE([Admitted Patients],ALL((DimCondition[Medical Condition])))
+                                    Inconclusive Results = CALCULATE([Admitted Patients],HealthStatData[Test Results] = "Inconclusive") + 0
+                                    Normal Results = CALCULATE([Admitted Patients],HealthStatData[Test Results] = "Normal") + 0
 
-   #### Customers 
+   #### Time Intelligence 
 
-                                    Number of Customers who Purchased = DISTINCTCOUNT(FactSales[CustomerKey])
-                                    Revenue per Customer = DIVIDE([Total Revenue], [# of Customers who Purchased], BLANK())
-                                    Total Customers = COUNTROWS(DimCustomer)
-  
-   #### Returns 
+                                    LY Admitted Patients = CALCULATE([Admitted Patients], DATEADD(DimDate[Date],-1,YEAR))
 
-                                    Quantity Returned = SUM(FactReturns[ReturnQuantity])
-                                    Return Rate = DIVIDE([Quantity Returned],[Quantity Ordered], BLANK())
-                                    Total Returns = COUNTROWS(FactReturns)
 
-   #### Adjusted Pricer (5%)
+                                    Rooms YoY = 
+                                    VAR SelectedYear = SELECTEDVALUE('DimDate'[Year])
+                                    VAR PrevYear = 
+                                        IF(NOT ISBLANK(SelectedYear),
+                                            SelectedYear - 1,
+                                            BLANK()
+                                        )
+                                    VAR PrevYearValue = 
+                                        IF(NOT ISBLANK(PrevYear),
+                                            CALCULATE([Total Rooms], YEAR('DimDate'[Date]) = PrevYear),
+                                            BLANK()
+                                        )
+                                    VAR CurrentValue = [Total Rooms]
+                                    VAR YoYChange = 
+                                        IF(
+                                            AND(NOT ISBLANK(CurrentValue), NOT ISBLANK(PrevYearValue)),
+                                            DIVIDE(CurrentValue - PrevYearValue, PrevYearValue),
+                                            BLANK()
+                                        )
+                                    RETURN
+                                    IF(
+                                        ISBLANK(SelectedYear),
+                                        "No selection",
+                                        IF(
+                                            NOT ISBLANK(YoYChange),
+                                            IF(YoYChange > 0, 
+                                                "↑ " & FORMAT(YoYChange, "#.0%") & " Vs " & PrevYear,
+                                                "↓ " & FORMAT(YoYChange, "#.0%") & " Vs " & PrevYear
+                                            ),
+                                            "No Data"
+                                        )
+                                    )
+                                    
 
-                                    Adjusted Price = [AVG Retail Price]* (1+'Price Adjustment (%)'[Price Adjustment (%) Value])
-                                    Adjusted Profit = [Adjusted Revenue]-[Total Cost]
-                                    Adjusted Revenue = SUMX(FactSales, FactSales[OrderQuantity]*[Adjusted Price])
-                                    AVG Retail Price = AVERAGE(DimProduct[ProductPrice])
+                                    Doctors YoY = 
+                                    VAR SelectedYear = SELECTEDVALUE('DimDate'[Year])
+                                    VAR PrevYear = 
+                                        IF(NOT ISBLANK(SelectedYear),
+                                            SelectedYear - 1,
+                                            BLANK()
+                                        )
+                                    VAR PrevYearValue = 
+                                        IF(NOT ISBLANK(PrevYear),
+                                            CALCULATE([Total Doctors], YEAR('DimDate'[Date]) = PrevYear),
+                                            BLANK()
+                                        )
+                                    VAR CurrentValue = [Total Doctors]
+                                    VAR YoYChange = 
+                                        IF(
+                                            AND(NOT ISBLANK(CurrentValue), NOT ISBLANK(PrevYearValue)),
+                                            DIVIDE(CurrentValue - PrevYearValue, PrevYearValue),
+                                            BLANK()
+                                        )
+                                    RETURN
+                                    IF(
+                                        ISBLANK(SelectedYear),
+                                        "No selection",
+                                        IF(
+                                            NOT ISBLANK(YoYChange),
+                                            IF(YoYChange > 0, 
+                                                "↑ " & FORMAT(YoYChange, "#.0%") & " Vs " & PrevYear,
+                                                "↓ " & FORMAT(YoYChange, "#.0%") & " Vs " & PrevYear
+                                            ),
+                                            "No Data"
+                                        )
+                                    )
+                                    
+                                    Bill YoY = 
+                                    VAR SelectedYear = SELECTEDVALUE('DimDate'[Year])
+                                    VAR PrevYear = 
+                                        IF(NOT ISBLANK(SelectedYear),
+                                            SelectedYear - 1,
+                                            BLANK()
+                                        )
+                                    VAR PrevYearValue = 
+                                        IF(NOT ISBLANK(PrevYear),
+                                            CALCULATE([Total Billing], YEAR('DimDate'[Date]) = PrevYear),
+                                            BLANK()
+                                        )
+                                    VAR CurrentValue = [Total Billing]
+                                    VAR YoYChange = 
+                                        IF(
+                                            AND(NOT ISBLANK(CurrentValue), NOT ISBLANK(PrevYearValue)),
+                                            DIVIDE(CurrentValue - PrevYearValue, PrevYearValue),
+                                            BLANK()
+                                        )
+                                    RETURN
+                                    IF(
+                                        ISBLANK(SelectedYear),
+                                        "No selection",
+                                        IF(
+                                            NOT ISBLANK(YoYChange),
+                                            IF(YoYChange > 0, 
+                                                "↑ " & FORMAT(YoYChange, "#.0%") & " Vs " & PrevYear,
+                                                "↓ " & FORMAT(YoYChange, "#.0%") & " Vs " & PrevYear
+                                            ),
+                                            "No Data"
+                                        )
+                                    )
+                                    
+                                    AVG LOS YoY = 
+                                    VAR SelectedYear = SELECTEDVALUE('DimDate'[Year])
+                                    VAR PrevYear = 
+                                        IF(NOT ISBLANK(SelectedYear),
+                                            SelectedYear - 1,
+                                            BLANK()
+                                        )
+                                    VAR PrevYearValue = 
+                                        IF(NOT ISBLANK(PrevYear),
+                                            CALCULATE([AVG LOS], YEAR('DimDate'[Date]) = PrevYear),
+                                            BLANK()
+                                        )
+                                    VAR CurrentValue = [AVG LOS]
+                                    VAR YoYChange = 
+                                        IF(
+                                            AND(NOT ISBLANK(CurrentValue), NOT ISBLANK(PrevYearValue)),
+                                            DIVIDE(CurrentValue - PrevYearValue, PrevYearValue),
+                                            BLANK()
+                                        )
+                                    RETURN
+                                    IF(
+                                        ISBLANK(SelectedYear),
+                                        "No selection",
+                                        IF(
+                                            NOT ISBLANK(YoYChange),
+                                            IF(YoYChange > 0, 
+                                                "↑ " & FORMAT(YoYChange, "#.0%") & " Vs " & PrevYear,
+                                                "↓ " & FORMAT(YoYChange, "#.0%") & " Vs " & PrevYear
+                                            ),
+                                            "No Data"
+                                        )
+                                    )
+                                    
+                                    AVG Age YoY = 
+                                    VAR SelectedYear = SELECTEDVALUE('DimDate'[Year])
+                                    VAR PrevYear = 
+                                        IF(NOT ISBLANK(SelectedYear),
+                                            SelectedYear - 1,
+                                            BLANK()
+                                        )
+                                    VAR PrevYearValue = 
+                                        IF(NOT ISBLANK(PrevYear),
+                                            CALCULATE([AVG Age], YEAR('DimDate'[Date]) = PrevYear),
+                                            BLANK()
+                                        )
+                                    VAR CurrentValue = [AVG Age]
+                                    VAR YoYChange = 
+                                        IF(
+                                            AND(NOT ISBLANK(CurrentValue), NOT ISBLANK(PrevYearValue)),
+                                            DIVIDE(CurrentValue - PrevYearValue, PrevYearValue),
+                                            BLANK()
+                                        )
+                                    RETURN
+                                    IF(
+                                        ISBLANK(SelectedYear),
+                                        "No selection",
+                                        IF(
+                                            NOT ISBLANK(YoYChange),
+                                            IF(YoYChange > 0, 
+                                                "↑ " & FORMAT(YoYChange, "#.0%") & " Vs " & PrevYear,
+                                                "↓ " & FORMAT(YoYChange, "#.0%") & " Vs " & PrevYear
+                                            ),
+                                            "No Data"
+                                        )
+                                    )
+                                    
+                                    Admission YoY = 
+                                    VAR SelectedYear = SELECTEDVALUE('DimDate'[Year])
+                                    VAR PrevYear = 
+                                        IF(NOT ISBLANK(SelectedYear),
+                                            SelectedYear - 1,
+                                            BLANK()
+                                        )
+                                    VAR PrevYearValue = 
+                                        IF(NOT ISBLANK(PrevYear),
+                                            CALCULATE([Admitted Patients], YEAR('DimDate'[Date]) = PrevYear),
+                                            BLANK()
+                                        )
+                                    VAR CurrentValue = [Admitted Patients]
+                                    VAR YoYChange = 
+                                        IF(
+                                            AND(NOT ISBLANK(CurrentValue), NOT ISBLANK(PrevYearValue)),
+                                            DIVIDE(CurrentValue - PrevYearValue, PrevYearValue),
+                                            BLANK()
+                                        )
+                                    RETURN
+                                    IF(
+                                        ISBLANK(SelectedYear),
+                                        "No selection",
+                                        IF(
+                                            NOT ISBLANK(YoYChange),
+                                            IF(YoYChange > 0, 
+                                                "↑ " & FORMAT(YoYChange, "#.0%") & " Vs " & PrevYear,
+                                                "↓ " & FORMAT(YoYChange, "#.0%") & " Vs " & PrevYear
+                                            ),
+                                            "No Data"
+                                        )
+                                    )
 
    #### Time Intelligence 
 
