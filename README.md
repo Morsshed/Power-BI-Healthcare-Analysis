@@ -96,6 +96,7 @@ This project provides a structured analytical approach to uncover these issues a
 
 ### A1.2 Data Transformation
 
+![Healthcare Fact Table Transformation](https://github.com/Morsshed/Power-BI-Healthcare-Analysis/blob/main/Healthcare%20Fact%20Table%20Transformation.png?raw=true)
 
 
 ### A1.3 Data Normalization
