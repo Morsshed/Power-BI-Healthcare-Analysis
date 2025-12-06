@@ -428,7 +428,7 @@ The company is experiencing a diversified customer purchase pattern where only a
   ## C1 - KPI and Domographic Analyses
 ![Healthcare Demographics Analysis](https://github.com/Morsshed/Power-BI-Healthcare-Analysis/blob/main/Healthcare%20Demographis%20Analysis.png?raw=true)
   ## C2 - Trend Analyses
-
+![Healthcare Trend Analysis](https://github.com/Morsshed/Power-BI-Healthcare-Analysis/blob/main/Healthcare%20Trend%20Analysis.png?raw=true)
   ## C3 - Billing Analyses
 
 
