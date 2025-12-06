@@ -117,7 +117,7 @@ This project provides a structured analytical approach to uncover these issues a
 
   ## A2.1 - Data Model
 
-
+![Healthcare Data Model Diagram](https://github.com/Morsshed/Power-BI-Healthcare-Analysis/blob/main/Healthcare%20Data%20Model.png?raw=true)
   
   ## A2.2 - Cardinality
 
