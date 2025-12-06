@@ -106,16 +106,12 @@ This project provides a structured analytical approach to uncover these issues a
 
 # A2 - Fact Vs Dimentaion Tables (Relationship)
 
-                                         Fact Tables:
-                                               1. Fact Sales
-                                               2. Fact Returns
+                                         Fact Table:
+                                               1. HealthStatData
                                          Dimension Tables:
-                                               1. Dim Customer
+                                               1. Dim Condition
                                                2. Dim Date
-                                               3. Dim Product
-                                               4. Dim Category
-                                               5. Dim SubCategory
-                                               6. Dim Territory
+                                           
 
   ## A2.1 - Data Model
 
