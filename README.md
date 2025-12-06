@@ -100,6 +100,7 @@ This project provides a structured analytical approach to uncover these issues a
 
 ### A1.3 Data Normalization
 
+![Healthcare Data Normalisation Diagram](https://github.com/Morsshed/Power-BI-Healthcare-Analysis/blob/main/Healthcare%20Data%20Normalisation.png?raw=true)
 
 
 # A2 - Fact Vs Dimentaion Tables (Relationship)
