@@ -37,19 +37,23 @@ This project provides a structured analytical approach to uncover these issues a
  ## iii. Dashboard Features
 
                              Dynamic Features:
-                                              1. Tooltips : Matrix in Line Chart
-                                              2. Drill Through : Table Chart with Gauge Charts
-                                              3. Drill Down : Stacked Bar Charts
-                                              4. Filed Parameter : Sales Metrics                  
+                                              1. Slicers : Year, Month, Medical Condistion, Hospital Name
+                                              2. Page Nevigators : Demographis Analysis, Trend Analysis, Billing Analysis
+                                              3. Live Image URL : Stacked Bar Charts
+                                              4. Filed Parameter : Age Group, LOS (Length of Stay) Groups, Admission Type
+                                              5. Numeric Parameter : Patients, AVG Age, AVG Billing 
                              Analytical Features:
-                                              1. KPI Cards : Total Orders, Total Revenue, Net Profit, Profit Margin and Rate of Return
-                                              2. Stacked Bard Chart: Number of Orders by Category and Sub Category
-                                              3. Line Charts : Trend and Forecasting, Net Profit Vs Adjusted Profit
-                                              4. Table chart : Top 10 Products by Profit, Sales by Continents/Country/Regions
-                                              5. Gauge Charts : Tagrgets VS Profit/Order/Revenue
-                                              6. Map : Country by Total Revenue
-                                              7. Pie Charts : Customers' Demographic Analyses
-                                              8. Matrix : Customer Segmentation
+                                              1. KPI Cards : Admitted Patients, Total Rooms, Total Billing, LY Admitted Patients
+                                                             AVG LOS (Days), Patients AVG Age, Total Doctors,
+                                              2. Card : LIVE Condition Description, LIVE Disease Image, Test Results
+                                              3. Clustered Column Chart : Patient Types Parameters VS KPI Parameters
+                                              4. Line chart : Month VS KPI Parameters
+                                              5. Stacked Column Chart : Total Billing by LOS Groups and Admission Type
+                                              6. Treemap: Total Billing and Admitted Patients by Hospitals
+                                              7. Pie Charts : Admitted Patients by Day Type, Admitted Patients by LOS Groups
+                                              8. Matrix with Column Chart: Deieasewise Admitted Patients by Hospitals
+                                                                           Patients Admission by Month and Day for the Selected Year
+                                              9. Decomposition Tree: Total Billing by Hospitals, Admission Type, Age Groups, Gender
                                               
  ## iv. Insights and Recommendations
 
