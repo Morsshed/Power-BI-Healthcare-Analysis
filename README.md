@@ -1,7 +1,6 @@
 # Power-BI-Healthcare-Analysis
 Hospital Monitoring Dashboard
-
-Interactive Dashboard
+[View the Healthcare Analysis Dashboard](https://app.powerbi.com/view?r=eyJrIjoiOGMzNDA0NTYtZTRhNy00YTg4LWJlYWYtMzM2MjAxYjE2Y2YzIiwidCI6IjFhOTM4M2ZmLTVlMDEtNDkzYy04MTJmLTg0ODAzZTliMGI3YiJ9)
 
  ### 1. Domain: Healthcare Analytics
 
