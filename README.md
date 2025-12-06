@@ -430,8 +430,7 @@ The company is experiencing a diversified customer purchase pattern where only a
   ## C2 - Trend Analyses
 ![Healthcare Trend Analysis](https://github.com/Morsshed/Power-BI-Healthcare-Analysis/blob/main/Healthcare%20Trend%20Analysis.png?raw=true)
   ## C3 - Billing Analyses
-
-
+![Healthcare Billing Analysis](https://github.com/Morsshed/Power-BI-Healthcare-Analysis/blob/main/Healthcare%20Billing%20Analysis.png?raw=true)
 
 # D. Conclusion
 I truly enjoyed working on this project from beginning to end. Experiencing the full process provided valuable insights into both the data and the visuals. I look forward to tackling similar projects in the future and exploring even more complex datasets.
