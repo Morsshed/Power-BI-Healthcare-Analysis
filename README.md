@@ -32,6 +32,7 @@ This project provides a structured analytical approach to uncover these issues a
 
  ## ii. Snapshots
 
+![Healthcare Analysis Overview](https://github.com/Morsshed/Power-BI-Healthcare-Analysis/blob/main/Healthcare%20Analysis.jpeg?raw=true)
 
  ## iii. Dashboard Features
 
