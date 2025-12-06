@@ -81,6 +81,7 @@ This project provides a structured analytical approach to uncover these issues a
                        4. Grow Underperforming Regions With High Potential. Europe and Asia-Pacific show significant order volume—launch region-specific campaigns and pricing adjustments.
                        5. Enhance Customer Lifetime Value. The company can introduce loyalty programs for young customers (25–34 age group), who represent the highest engagement segment.
  ## v. Data Source
+ 
  ## vi. Dashboard Theme:
  JSON File
 
