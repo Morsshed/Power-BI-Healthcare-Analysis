@@ -99,7 +99,7 @@ This project provides a structured analytical approach to uncover these issues a
 
 
 
-# A2 - Data Modelling (Relationship)
+# A2 - Fact Vs Dimentaion Tables (Relationship)
 
                                          Fact Tables:
                                                1. Fact Sales
@@ -124,7 +124,7 @@ This project provides a structured analytical approach to uncover these issues a
   
 
 
-# B - DAX
+# B - DAX Languages
 
  ## B1.1 - Calculated Tables
 
