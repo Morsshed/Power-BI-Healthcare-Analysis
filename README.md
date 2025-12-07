@@ -3,7 +3,6 @@ Hospital Monitoring Dashboard
 [View the Healthcare Analysis Dashboard](https://app.powerbi.com/view?r=eyJrIjoiOGMzNDA0NTYtZTRhNy00YTg4LWJlYWYtMzM2MjAxYjE2Y2YzIiwidCI6IjFhOTM4M2ZmLTVlMDEtNDkzYy04MTJmLTg0ODAzZTliMGI3YiJ9)
 
  ### 1. Domain: Healthcare Analytics
-► ○ ● ✓
 
 # Analysis Details
  ## i. Business Case
@@ -131,12 +130,11 @@ During the development of the healthcare monitoring dashboard, Power Query playe
 
 ![Healthcare Fact Table Transformation](https://github.com/Morsshed/Power-BI-Healthcare-Analysis/blob/main/Healthcare%20Fact%20Table%20Transformation.png?raw=true)
 
-To structure the healthcare dataset efficiently, database normalization principles were applied to reduce redundancy and improve relational integrity. Patient records, hospital information, medical condition lookups, and billing transactions were organised into separate linked tables using unique identifiers such as PatientID and HospitalID. By breaking down the dataset into 3NF (Third Normal Form), we minimized duplicated values and improved query performance across the dashboard. This structure ensures scalable reporting, supports accurate aggregation across demographic, trend, and billing layers, and enhances the reliability of insights. Normalization not only optimizes storage but also makes data maintenance easier and prevents update anomalies in future integrations.
-
 ### A1.3 Data Normalization
 
 ![Healthcare Data Normalisation Diagram](https://github.com/Morsshed/Power-BI-Healthcare-Analysis/blob/main/Healthcare%20Data%20Normalisation.png?raw=true)
 
+To structure the healthcare dataset efficiently, database normalization principles were applied to reduce redundancy and improve relational integrity. Patient records, hospital information, medical condition lookups, and billing transactions were organised into separate linked tables using unique identifiers such as PatientID and HospitalID. By breaking down the dataset into 3NF (Third Normal Form), we minimized duplicated values and improved query performance across the dashboard. This structure ensures scalable reporting, supports accurate aggregation across demographic, trend, and billing layers, and enhances the reliability of insights. Normalization not only optimizes storage but also makes data maintenance easier and prevents update anomalies in future integrations.
 
 # A2 - Fact Vs Dimentaion Tables (Relationship)
 
