@@ -66,36 +66,57 @@ The company is experiencing a diversified customer purchase pattern where only a
                                                                            Patients Admission by Month and Day for the Selected Year
                                               9. Decomposition Tree: Total Billing by Hospitals, Admission Type, Age Groups, Gender
                                               
- ## iv. Insights and Recommendations
+ ### iv. Insights and Recommendations
 
-                 Summary Insights
-                        1. The business has achieved 25K total orders within the selected period.
-                        2. Total revenue is 25M, showing strong overall sales performance.
-                        3. Net profit is 10M, resulting in an excellent 42% profit margin.
-                        4. The return rate is 2.2%, indicating efficient operations and product quality.
-                        5. The forecasting chart shows a clear upward trend, meaning revenue is expected to grow steadily.
-                        6. “Tires and Tubes” is the most ordered product sub-category.
-                        7. “Shorts” is the sub-category with the highest return rate.
-                        8. “Bib-Shorts” is the top-performing product in terms of revenue and net profit.
-                        9. The top 10 products by profit show that cycling gear dominates the highest revenue list.
-                       10. There are 18,148 total customers, and 17,416 have made purchases, giving a strong customer purchase rate.
-                       11. The average revenue per customer is approximately $1,430.
-                       12. Gender distribution is nearly balanced, with slightly more male customers.
-                       13. Most customers fall within the 25–34 age group, indicating a young target audience.
-                       14. The customer segmentation (RFM) shows a large portion in the “Potential Loyalists” and “Champions” categories.
-                       15. Revenue per customer has a declining trend at the start of the month but stabilizes later.
-                       16. Single customers represent the majority of buyers, which may influence product preferences.
-                       17. North America generates the highest total revenue and profit, with 42.5% profit margin.
-                       18. Europe, although significant in sales volume, shows slightly lower return rates compared to NA.
-                       19. Revenue is widely diversified across continents, reducing business risk.
-                       20. The United States leads all countries in both revenue and total orders, followed by the U.K. and Germany.
+#### Summary Insights
+                 
+Total admitted patients count is strong with 11K–55K annually, showing steady growth.
 
-                Recommendations for Business Growth
-                       1. Focus Marketing on High-Performing Segments. It is recommended to target promotions to “Champions” and “Potential Loyalists” to maximize repeat purchases.
-                       2. Improve Product Quality for High-Return Categories. It is necessary to investigate Shorts category (highest return rate) for sizing, material, or expectation mismatch issues.
-                       3. Expand Inventory & Promotions for High-Demand Products. The company can increase advertising and stock for Tires and Tubes, Bib-Shorts, and other top-profit items.
-                       4. Grow Underperforming Regions With High Potential. Europe and Asia-Pacific show significant order volume—launch region-specific campaigns and pricing adjustments.
-                       5. Enhance Customer Lifetime Value. The company can introduce loyalty programs for young customers (25–34 age group), who represent the highest engagement segment.
+Average age of patients is 51.8 years, indicating a majority mid-to-senior population.
+
+Total billing exceeds $1.4B, suggesting high operational and revenue performance.
+
+Average LOS ~15 days, meaning patient turnover is moderate but improvement is possible.
+
+High abnormal test results (~54%) indicates significant chronic or critical illness volume.
+
+35% inconclusive tests show need for better diagnostics or screening accuracy.
+
+Houston Methodist Hospital has highest patient inflow and billing contribution.
+
+Seasonal trends indicate lower admissions in early months (Feb–Mar) and summer dips (Jun–Jul).
+
+Weekdays have more admissions than weekends, suggesting workday healthcare dependency.
+
+Emergency & urgent cases show higher fluctuation compared to elective admissions.
+
+Longest LOS (>15 days) generates highest revenue, especially for chronic treatment.
+
+Senior age group (56–75) drives maximum billing, indicating major healthcare demand.
+
+Female patients contribute higher revenue share than males.
+
+Smaller hospitals provide lower billing share, showing uneven distribution of load.
+
+Year-on-year figures reflect gradual improvement in billing, LOS efficiency & patient count.
+
+
+
+
+#### Recommendations for Business Growth
+
+Build senior-focused care programs (chronic disease packages, rehabilitation plans).
+
+Improve lab testing & diagnostics quality to reduce inconclusive results.
+
+Introduce optimized short-stay treatment pathways to reduce LOS and increase bed turnover.
+
+Expand services and resources in high-revenue hospitals and uplift performance in lower-performing ones.
+
+Promote elective surgery & preventive healthcare campaigns to boost stable revenue flow.
+
+Use seasonal trend forecasting to manage staff, beds, and resource allocation efficiently.
+
  ## v. Data Source
  [Dataset in Microsoft Community](https://community.fabric.microsoft.com/t5/Data-Stories-Gallery/Healthcare-Analytics-Dashboard-Power-BI-Template/m-p/4788148)
  ## vi. Dashboard Theme:
