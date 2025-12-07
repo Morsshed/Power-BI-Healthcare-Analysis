@@ -230,7 +230,8 @@ To structure the healthcare dataset efficiently, database normalization principl
 
    #### Time Intelligence 
 
-                                    LY Admitted Patients = CALCULATE([Admitted Patients], DATEADD(DimDate[Date],-1,YEAR))
+   ###### LY Admitted Patients = 
+                      CALCULATE([Admitted Patients], DATEADD(DimDate[Date],-1,YEAR))
 
 
                                     Rooms YoY = 
