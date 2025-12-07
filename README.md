@@ -124,14 +124,14 @@ The healthcare monitoring dashboard highlights hospital performance across demog
 
 ## A1.0 Power Query
 
-### A1.1 Data Cleaning
-
-
+### A1.1 Data Cleaning in Power Query
+During the development of the healthcare monitoring dashboard, Power Query played a crucial role in preparing the raw datasets for analysis. Multiple hospital data files were imported, and cleaning operations such as removing duplicates, treating blank and null fields, correcting data types, trimming text, and standardizing date formats were performed. Additional transformations including splitting and merging columns, creating conditional logic for categorisation of admission types, and generating derived metrics like LOS groups and billing segments helped ensure data consistency. Through the Power Query Editor, we automated the ETL pipeline so that future data refreshes flow seamlessly, enabling accurate reporting and reducing manual rework.
 
 ### A1.2 Data Transformation
 
 ![Healthcare Fact Table Transformation](https://github.com/Morsshed/Power-BI-Healthcare-Analysis/blob/main/Healthcare%20Fact%20Table%20Transformation.png?raw=true)
 
+To structure the healthcare dataset efficiently, database normalization principles were applied to reduce redundancy and improve relational integrity. Patient records, hospital information, medical condition lookups, and billing transactions were organised into separate linked tables using unique identifiers such as PatientID and HospitalID. By breaking down the dataset into 3NF (Third Normal Form), we minimized duplicated values and improved query performance across the dashboard. This structure ensures scalable reporting, supports accurate aggregation across demographic, trend, and billing layers, and enhances the reliability of insights. Normalization not only optimizes storage but also makes data maintenance easier and prevents update anomalies in future integrations.
 
 ### A1.3 Data Normalization
 
