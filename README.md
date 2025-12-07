@@ -434,21 +434,90 @@ The healthcare monitoring dashboard highlights hospital performance across demog
                                         )
                                     )
 
-   #### Time Intelligence 
+   #### Numeric Parameter 
+                                      KPI = {
+                                       ("Patients", NAMEOF('_DAXMeasures'[Admitted Patients]), 0),
+                                       ("AVG Age", NAMEOF('_DAXMeasures'[AVG Age]), 1),
+                                       ("AVG Billing", NAMEOF('_DAXMeasures'[AVG Billing Amount]), 2)
+                                   }
 
-                                   Order YTD = CALCULATE([# of Orders], DATESYTD(DimDate[Date]))
-                                   PM Profit = CALCULATE([Net Profit], DATEADD(DimDate[Date],-1,MONTH))
-                                   PM Quantity Returned = CALCULATE([Quantity Returned], DATEADD(DimDate[Date],-1,MONTH))
-                                   PM Revenue = CALCULATE([Total Revenue], DATEADD(DimDate[Date],-1,MONTH) )
-                                   PM Order = CALCULATE([# of Orders], DATEADD(DimDate[Date],-1,MONTH))
-
+   #### Field Parameter
+   
+                                      Parameter = {
+                                       ("Age Group", NAMEOF('HealthStatData'[Age Group]), 0),
+                                       ("LOS Groups", NAMEOF('HealthStatData'[LOS Groups]), 1),
+                                       ("Admission Type", NAMEOF('HealthStatData'[Admission Type]), 2)
+                                   }
 # C - Analyses and Interactivities:
   ## C1 - KPI and Domographic Analyses
 ![Healthcare Demographics Analysis](https://github.com/Morsshed/Power-BI-Healthcare-Analysis/blob/main/Healthcare%20Demographis%20Analysis.png?raw=true)
+
+○ Total admitted patients recorded: 11,017 (YoY +1.8%).
+
+○ Total rooms available: 400, capacity utilization appears moderate.
+
+○ Total billing: $281.1M, slight increase +1.3% YoY.
+
+○ Total doctors: 9,339, YoY growth +1.8%.
+
+○ AVG Length of Stay (LOS): 15.4 days, dropped -1.6% YoY, operational efficiency improving.
+
+○ Patients Average Age: 51.8, older population dominates hospital admissions.
+
+○ Test results: Normal (10.7%), Abnormal (54.43%), Inconclusive (35%) → High abnormal & inconclusive cases.
+
+○ Highest patient volume by medical condition appears Arthritis & chronic diseases.
+
+○ Gender-wise billing chart suggests male & female spending vary with age group (slight rise in senior age).
+
+○ Houston Methodist Hospital shows highest patients: 20.4K admissions (dominant contributor).
+
   ## C2 - Trend Analyses
 ![Healthcare Trend Analysis](https://github.com/Morsshed/Power-BI-Healthcare-Analysis/blob/main/Healthcare%20Trend%20Analysis.png?raw=true)
+
+○ Total annual admitted patients: approx 55,500.
+
+○ Patient count varies monthly; Apr–Dec show upward trend peaks.
+
+○ Weekdays have higher admissions vs weekends in donut chart.
+
+○ LOS groups distribution shows most patients in LOS 8-14 days or 15-21 days.
+
+○ Emergency & Urgent visits fluctuate more heavily than elective cases.
+
+○ February/March have lower admissions compared to later months.
+
+○ June–July slightly drops in total intake (seasonality effect possible).
+
+○ Tuesday–Friday show consistently high volume vs weekend fall.
+
+○ LOS 1-7 days group smallest share → fewer short-stay patients.
+
+○ Patient stability suggests strong year-round operating load.
+
   ## C3 - Billing Analyses
 ![Healthcare Billing Analysis](https://github.com/Morsshed/Power-BI-Healthcare-Analysis/blob/main/Healthcare%20Billing%20Analysis.png?raw=true)
+
+○ Total billing approx $1.417B.
+
+○ Highest billing generated from 15+ days LOS & Emergency cases.
+
+○ Elective procedures generate stable but lower billing than Urgent/Emergency.
+
+○ Hospital with most revenue: Houston Methodist $521M+.
+
+○ UCLA Medical & Johns Hopkins also show high revenue volume.
+
+○ Highest revenue age group: 56–75 years.
+
+○ Gender billing: Female ($91.1M) > Male ($74.7M).
+
+○ Top spending category: Elective $59.2M, Urgent slightly lower.
+
+○ Distribution map shows revenue concentration in few large hospitals.
+
+○ Small hospitals contribute comparatively low share → potential growth room.
+
 
 # D. Conclusion
 I truly enjoyed working on this project from beginning to end. Experiencing the full process provided valuable insights into both the data and the visuals. I look forward to tackling similar projects in the future and exploring even more complex datasets.
