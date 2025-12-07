@@ -234,30 +234,29 @@ To structure the healthcare dataset efficiently, database normalization principl
                       CALCULATE([Admitted Patients], DATEADD(DimDate[Date],-1,YEAR))
 
 
-                                    Rooms YoY = 
-                                    VAR SelectedYear = SELECTEDVALUE('DimDate'[Year])
-                                    VAR PrevYear = 
-                                        IF(NOT ISBLANK(SelectedYear),
-                                            SelectedYear - 1,
+   ###### Rooms YoY = 
+                      VAR SelectedYear = SELECTEDVALUE('DimDate'[Year])
+                      VAR PrevYear = 
+                              IF(NOT ISBLANK(SelectedYear),
+                                      SelectedYear - 1,
+                                           BLANK()
+                                        )
+                       VAR PrevYearValue = 
+                              IF(NOT ISBLANK(PrevYear),
+                                      CALCULATE([Total Rooms], YEAR('DimDate'[Date]) = PrevYear),
                                             BLANK()
                                         )
-                                    VAR PrevYearValue = 
-                                        IF(NOT ISBLANK(PrevYear),
-                                            CALCULATE([Total Rooms], YEAR('DimDate'[Date]) = PrevYear),
+                       VAR CurrentValue = [Total Rooms]
+                       VAR YoYChange = 
+                              IF(
+                                     AND(NOT ISBLANK(CurrentValue), NOT ISBLANK(PrevYearValue)),
+                                     DIVIDE(CurrentValue - PrevYearValue, PrevYearValue),
                                             BLANK()
                                         )
-                                    VAR CurrentValue = [Total Rooms]
-                                    VAR YoYChange = 
-                                        IF(
-                                            AND(NOT ISBLANK(CurrentValue), NOT ISBLANK(PrevYearValue)),
-                                            DIVIDE(CurrentValue - PrevYearValue, PrevYearValue),
-                                            BLANK()
-                                        )
-                                    RETURN
-                                    IF(
-                                        ISBLANK(SelectedYear),
+                       RETURN
+                               IF(ISBLANK(SelectedYear),
                                         "No selection",
-                                        IF(
+                                            IF(
                                             NOT ISBLANK(YoYChange),
                                             IF(YoYChange > 0, 
                                                 "↑ " & FORMAT(YoYChange, "#.0%") & " Vs " & PrevYear,
