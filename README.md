@@ -3,43 +3,43 @@ Hospital Monitoring Dashboard
 [View the Healthcare Analysis Dashboard](https://app.powerbi.com/view?r=eyJrIjoiOGMzNDA0NTYtZTRhNy00YTg4LWJlYWYtMzM2MjAxYjE2Y2YzIiwidCI6IjFhOTM4M2ZmLTVlMDEtNDkzYy04MTJmLTg0ODAzZTliMGI3YiJ9)
 
  ### 1. Domain: Healthcare Analytics
+► ○ ● ✓
 
 # Analysis Details
  ## i. Business Case
  
 ### Business Problem Statement
 
-The company is experiencing a diversified customer purchase pattern where only a small group of high-value customers consistently contribute to revenue, while a majority remain in early-engagement stages such as Promising or Potential Loyalists. Although total revenue performance is stable, customer purchase frequency shows signs of fluctuation, and several customer segments are at risk of churn due to declining recency in their purchase behavior. To sustain growth, the business needs an effective segmentation-driven strategy to enhance customer retention, increase repeat purchase behavior, and convert mid-tier customers into top-value champions.
+The healthcare monitoring dashboard highlights hospital performance across demographics, trends, and billing metrics. The analysis indicates consistent patient intake, strong billing outcomes, and a growing senior patient population. However, high abnormal/inconclusive test rates, long length of stay duration, and uneven resource allocation across hospitals suggest operational challenges. Addressing these issues will improve patient outcomes, reduce costs, and increase efficiency and profitability.
 
-### Key Issues Identified
+#### Key Issues Identified
 
-► Revenue is heavily dependent on a limited high-value customer segment (Champions & Loyal Customers).
+► High percentage of abnormal (54%) and inconclusive test results (35%), indicating diagnostic gaps.
 
-► Large customer share falls in Promising or Potential Loyalist categories, indicating untapped lifetime value.
+► Average Length of Stay ~15 days, reducing bed turnover and increasing operational burden.
 
-► Noticeable drop in purchase volume during certain periods despite revenue per customer remaining stable.
+► Revenue and patient load are concentrated in a few hospitals, while smaller units underperform.
 
-► Several customers show high recency value (haven’t purchased recently), signaling early churn.
+► Seasonal fluctuations show demand instability, particularly low admissions in early months.
 
-► Professional occupation group dominates revenue contribution — reliance on one segment poses risk.
+► Emergency and urgent cases show irregular influx, pressuring resource allocation.
 
-► Lower purchasing frequency among high spenders suggests lack of loyalty reinforcement.
+► Senior age population dominates, requiring specialized care planning and cost management.
 
-► Slow conversion rate of low-value groups into loyal customers affects long-term growth potential.
+#### Business Objectives
 
-### Business Objectives
+○ Improve diagnostic accuracy and reduce inconclusive result ratio.
 
-○ Increase recurrent purchases by designing retention and engagement strategies.
+○ Enhance operational efficiency by reducing LOS to increase bed turnover.
 
-○ Convert mid-tier customers into loyal and champion segments.
+○ Expand service capabilities across all hospitals to balance patient load and revenue distribution.
 
-○ Recover inactive or slipping customers via targeted win-back campaigns.
+○ Implement forecasting models for seasonal resource and staff optimization.
 
-○ Reduce dependency on a single high-revenue demographic.
+○ Increase preventive and elective care offerings to stabilize year-round revenue flow.
 
-○ Improve customer lifetime value through RFM-driven personalization.
+○ Develop specialized senior-care programs to address high-value patient segment needs.
 
-○ Track customer movement between RFM segments over time for continuous optimization.
 
  ## ii. Snapshots
 
@@ -70,52 +70,49 @@ The company is experiencing a diversified customer purchase pattern where only a
 
 #### Summary Insights
                  
-Total admitted patients count is strong with 11K–55K annually, showing steady growth.
+● Total admitted patients count is strong with 11K–55K annually, showing steady growth.
 
-Average age of patients is 51.8 years, indicating a majority mid-to-senior population.
+● Average age of patients is 51.8 years, indicating a majority mid-to-senior population.
 
-Total billing exceeds $1.4B, suggesting high operational and revenue performance.
+● Total billing exceeds $1.4B, suggesting high operational and revenue performance.
 
-Average LOS ~15 days, meaning patient turnover is moderate but improvement is possible.
+● Average LOS ~15 days, meaning patient turnover is moderate but improvement is possible.
 
-High abnormal test results (~54%) indicates significant chronic or critical illness volume.
+● High abnormal test results (~54%) indicates significant chronic or critical illness volume.
 
-35% inconclusive tests show need for better diagnostics or screening accuracy.
+● 35% inconclusive tests show need for better diagnostics or screening accuracy.
 
-Houston Methodist Hospital has highest patient inflow and billing contribution.
+● Houston Methodist Hospital has highest patient inflow and billing contribution.
 
-Seasonal trends indicate lower admissions in early months (Feb–Mar) and summer dips (Jun–Jul).
+● Seasonal trends indicate lower admissions in early months (Feb–Mar) and summer dips (Jun–Jul).
 
-Weekdays have more admissions than weekends, suggesting workday healthcare dependency.
+● Weekdays have more admissions than weekends, suggesting workday healthcare dependency.
 
-Emergency & urgent cases show higher fluctuation compared to elective admissions.
+● Emergency & urgent cases show higher fluctuation compared to elective admissions.
 
-Longest LOS (>15 days) generates highest revenue, especially for chronic treatment.
+● Longest LOS (>15 days) generates highest revenue, especially for chronic treatment.
 
-Senior age group (56–75) drives maximum billing, indicating major healthcare demand.
+● Senior age group (56–75) drives maximum billing, indicating major healthcare demand.
 
-Female patients contribute higher revenue share than males.
+● Female patients contribute higher revenue share than males.
 
-Smaller hospitals provide lower billing share, showing uneven distribution of load.
+● Smaller hospitals provide lower billing share, showing uneven distribution of load.
 
-Year-on-year figures reflect gradual improvement in billing, LOS efficiency & patient count.
-
-
-
+● Year-on-year figures reflect gradual improvement in billing, LOS efficiency & patient count.
 
 #### Recommendations for Business Growth
 
-Build senior-focused care programs (chronic disease packages, rehabilitation plans).
+✓ Build senior-focused care programs (chronic disease packages, rehabilitation plans).
 
-Improve lab testing & diagnostics quality to reduce inconclusive results.
+✓ Improve lab testing & diagnostics quality to reduce inconclusive results.
 
-Introduce optimized short-stay treatment pathways to reduce LOS and increase bed turnover.
+✓ Introduce optimized short-stay treatment pathways to reduce LOS and increase bed turnover.
 
-Expand services and resources in high-revenue hospitals and uplift performance in lower-performing ones.
+✓ Expand services and resources in high-revenue hospitals and uplift performance in lower-performing ones.
 
-Promote elective surgery & preventive healthcare campaigns to boost stable revenue flow.
+✓ Promote elective surgery & preventive healthcare campaigns to boost stable revenue flow.
 
-Use seasonal trend forecasting to manage staff, beds, and resource allocation efficiently.
+✓ Use seasonal trend forecasting to manage staff, beds, and resource allocation efficiently.
 
  ## v. Data Source
  [Dataset in Microsoft Community](https://community.fabric.microsoft.com/t5/Data-Stories-Gallery/Healthcare-Analytics-Dashboard-Power-BI-Template/m-p/4788148)
